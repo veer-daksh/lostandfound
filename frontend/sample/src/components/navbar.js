@@ -41,7 +41,7 @@ export default function Navbar()
             <Link to='/raise'>Raise</Link>
           </li>
           <li>
-            <Link to='/about'>About</Link>
+            <Link to='/login'>About</Link>
           </li>
         </ul>
         <div id='burger' className='burger' onClick={handle}>
