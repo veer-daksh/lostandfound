@@ -1,5 +1,4 @@
 import React from 'react';
-import APIService from './APIService';
 import UserService from '../services/UserService';
 
 export default function Raise() {
@@ -8,14 +7,10 @@ export default function Raise() {
     location: '',
     brand: '',
     color: '',
-    type: 'Found',
+    tag: 'Found',
     description: '',
   });
-  const [api,setApi]=React.useState({
-  firstName: 'test',
-  lastName: 'api',
-  emailId: 'post',
-  })
+  const [tags,setTags]=React.useState('Lost')
   const [counter, setCounter] = React.useState(1);
   const [form1, setForm1] = React.useState(true);
   const [form2, setForm2] = React.useState(false);
@@ -107,6 +102,23 @@ export default function Raise() {
   //   </React.Fragment>,
   // ]);
 
+
+  function handleLost()
+  {
+    setTags('Lost');
+    setDetail((prev)=>{
+      return {...prev, tag:tags }
+    })
+    console.log(detail);
+  }
+  function handleFound()
+  {
+    setTags('Found');
+    setDetail((prev) => {
+      return { ...prev, tag: tags };
+    });
+    console.log(detail);
+  }
   function handleChange(e) {
     const name = e.target.name;
     const val = e.target.value;
@@ -120,8 +132,7 @@ export default function Raise() {
     e.preventDefault();
     console.log("submit")
     console.log(detail);
-    console.log(api);
-    UserService.createUser(api);
+    UserService.createUser(detail);
   }
   
 
@@ -166,8 +177,8 @@ export default function Raise() {
                 <div className='form-question-1'>
                   WHICH TYPE OF QUERY YOU WANT TO RAISE?
                 </div>
-                <div className='form-lost-button'>LOST</div>
-                <div className='form-found-button'>FOUND</div>
+                <div className={`form-lost-button ${tags==='Lost'? 'select-tag' : ' ' }`} onClick={handleLost}>LOST</div>
+                <div className={`form-lost-button ${tags==='Found'? 'select-tag' : ' ' }`} onClick={handleFound}>FOUND</div>
               </React.Fragment>
             )}
             {form2 && (

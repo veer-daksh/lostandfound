@@ -199,6 +199,9 @@ nav {
   text-align: center;
   padding: 3vh;
 }
+.select-tag{
+  background-color: #101112;
+}
 
 .form-found-button {
   font-size: 4.3vh;
