@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+}
+.section {
+  padding: 5rem 0;
+}
+
+
+/* navbar css */
+
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #5d4954;
+}
+.logo {
+  color: wheat;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+}
+.nav-links {
+  display: flex; /* or li{display: inline-block;} */
+  /* flex only make direct child flex items */
+  justify-content: space-around;
+  width: 30%;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: wheat;
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-weight: 300;
+  font-size: 14px;
+  margin: 20px;
+   z-index: 100;
+}
+.burger {
+  display: none; /*       comment this and see the result . display none also hides the size */
+  cursor: pointer;
+ 
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: wheat;
+  margin: 4px;
+}
+/*  can add more media query in bw to adjust the spacing bw li items before this */
+
+/* 
+@media screen and (max-width:768px) {
+ .burger{
+  display: block;
+ }
+ .nav-links{
+  display: none;
+ }
+} */
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    margin: 0%;
+    top: 8vh;
+    height: 92vh;
+    background-color: #5d4954;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease 0s;
+  }
+  .burger {
+    display: block;
+  }
+}
+.nav-active {
+  transform: translateX(0%);
+  display: flex;
+}
+
+/* navbar ends */
+
+.home-page {
+  height: 100%;
+}
+
+/* raise ticket */
+
+.bgimage {
+  position: fixed;
+  background-image: url('./images/bg-01.jpg');
+  opacity: 0.2;
+  height: calc(100vh);
+  width: 100%;
+  z-index: -1;
+}
+
+.raise-ticket {
+  display: block;
+  height: calc(100%- 8vh);
+  width: 100%;
+  margin: 0;
+  padding: 0px;
+  padding-top: 12vh;
+}
+.form-bar {
+  margin: auto;
+  height: 10vh;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+}
+.form-bar-1 {
+  background-color: green;
+  width: 4vh;
+  text-align: center;
+  padding: auto;
+  height: 4vh;
+  color: aliceblue;
+  border-radius: 0.5vh;
+}
+
+.form-barline-1 {
+  background-color: white;
+  height: 0.5vh;
+  width: calc((100% - 12vh) / 2);
+}
+
+.form-bar-2 {
+  background-color: green;
+  width: 4vh;
+  text-align: center;
+  padding: auto;
+  height: 4vh;
+  color: aliceblue;
+  border-radius: 0.5vh;
+}
+
+.form-barline-2 {
+  background-color: white;
+  height: 0.5vh;
+  width: calc((100% - 12vh) / 2);
+}
+
+.form-bar-3 {
+  background-color: green;
+  width: 4vh;
+  text-align: center;
+  padding: auto;
+  height: 4vh;
+  color: aliceblue;
+  border-radius: 0.5vh;
+}
+
+.form-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 60%;
+  background-color: rgba(7, 7, 7, 0.384);
+  padding: 50px 70px;
+
+}
+
+.form-question-1 {
+  font-size: 4.3vh;
+  text-align: center;
+  margin-bottom: calc(4%);
+}
+
+.form-lost-button {
+  font-size: 4.3vh;
+  text-align: center;
+  padding: 3vh;
+}
+
+.form-found-button {
+  font-size: 4.3vh;
+  text-align: center;
+  padding: 3vh;
+}
+
+.form-lost-button:hover {
+  background-color: #101112;
+}
+
+.form-found-button:hover {
+  background-color: #101112;
+}
+
+.form-control {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 3vh;
+}
+
+input{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  /* caret-color: transparent;     to hide the blinking text cursor */
+  width: 30%;
+}
+input:focus ,input:hover{
+  outline: none;
+  border: none;
+  border-bottom: 0.3vh solid black ;
+  width: 50%;
+  height: 6vh;
+  transition: width 0.5s , height 0.5s  ;
+}
+::placeholder {
+  padding-left: 1vh;
+  color:black;
+  font-size: 3vh;
+}
+input:focus::placeholder {
+  opacity: 0.4;
+    transition: color 0.5s;
+}
+
+
+
+
+
+.form-button-holder {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
+}
+
+.next-button:focus {
+  outline: none;
+}
+.submit-button {
+  display: none;
+}
+
+
+/* cards list */
+
+.section-title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  margin-top: 1rem;
+}
+.cocktails-center {
+  width: 85vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  row-gap: 2rem;
+  column-gap: 2rem;
+  /* align-items: start; */
+}
+@media screen and (min-width: 576px) {
+  .cocktails-center {
+    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+  }
+}
+
+
+/* cards */
+.cocktail {
+  background: #fff;
+  margin-bottom: 2rem;
+  box-shadow:  2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s linear;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: 0.25rem;
+}
+.cocktail:hover {
+  box-shadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.cocktail img {
+  height: 20rem;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.cocktail-footer {
+  padding: 1.5rem;
+}
+.cocktail-footer h3,
+.cocktail-footer h4,
+.cocktail-footer p {
+  margin-bottom: 0.3rem;
+}
+.cocktail-footer h3 {
+  font-size: 2rem;
+}
+.cocktail-footer p {
+  color: #afafaf;
+  margin-bottom: 0.5rem;
+}
+
+.bgimage2 {
+  position: fixed;
+  background-image: url('./images/lst_back.jpg');
+  opacity: 0.5;
+  height: calc(100vh);
+  width: 100%;
+  z-index: -1;
+}
