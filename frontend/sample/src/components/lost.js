@@ -27,7 +27,7 @@ export default function Lost() {
         <h2 className='section-title'>LOST ITEMS</h2>
         <div className='cocktails-center'>
           {a.map((item) => {
-            return <Card count ={item} />;
+            return a.tag === 'Lost' ? <Card count={item} /> : NULL;
           })}
         </div>
       </section>

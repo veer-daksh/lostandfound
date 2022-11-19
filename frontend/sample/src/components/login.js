@@ -2,10 +2,12 @@ import React from 'react';
 import '../../src/login.css';
 export default function Login() {
   const [list, setList] = React.useState('container');
-  function handlevent(e) {
+  function handlevent(e) 
+  {
     setList('container right-panel-active');
   }
-  function removevent(e) {
+  function removevent(e) 
+  {
     setList('container');
   }
   return (
