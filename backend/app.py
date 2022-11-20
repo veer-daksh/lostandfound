@@ -95,6 +95,7 @@ def logindata():
         
         name=body['name']
         emailId = body['emailId']
+        password=body['password']
         # location=body['location']
         # brand=body['brand']
         # color=body['color']
@@ -112,7 +113,8 @@ def logindata():
             # "description":description
             # "firstName": firstName,
             # "lastName": lastName,
-            "emailId":emailId
+            "emailId":emailId,
+            "password":password
         })
         return jsonify({
             'status': 'Data is posted to MongoDB!',
@@ -124,7 +126,8 @@ def logindata():
             # 'description':description
             # 'firstName': firstName,
             # 'lastName': lastName,
-            'emailId':emailId
+            'emailId':emailId,
+            'password':password
         })
         # GET all data from database
     if request.method == 'GET':
@@ -141,6 +144,7 @@ def logindata():
             # firstName = data['firstName']
             # lastName = data['lastName']
             emailId = data['emailId']
+            password=data['password']
             dataDict = {
                 'id': str(id),
                 # 'tag':tag,
@@ -151,7 +155,8 @@ def logindata():
                 # 'description':description
                 # 'firstName': firstName,
                 # 'lastName': lastName,
-                'emailId': emailId
+                'emailId': emailId,
+                'password':password
             }
             dataJson.append(dataDict)
         print(dataJson)
