@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./cards";
 const url="http://localhost:5000/found";
 export default function Found(){
-  const [a, seta] = React.useState([1, 2, 3, 4]);
+  const [a, seta] = React.useState([1]);
   const fetchTours = async ()=>{
     try{
       const response =await fetch(url)
@@ -27,7 +27,7 @@ export default function Found(){
        <h2 className='section-title'>FOUND ITEMS</h2>
        <div className='cocktails-center'>
          {a.map((item) => {
-           return <Card count ={item}/>;
+           return a.tag === 'Found'? <Card count ={item}/> : item ;
          })}
        </div>
      </section>
