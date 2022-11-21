@@ -4,11 +4,24 @@ export default function Navbar()
 {
     const [list,setList]= React.useState('nav-links')
     const [counter, setCounter] = React.useState(1);
+
+    function handleResize(){
+      console.log('handle')
+      if(window.innerWidth>768)
+      {
+        if(counter %2 ===0 )
+        {
+          setCounter(1)
+          handle()
+        }
+      }
+    }
+    window.addEventListener('resize', handleResize);
     function handle(e)
     {
+        console.log(window.innerWidth);
         setCounter(counter + 1);
         console.log(counter); 
-        console.log('hello')
         if(counter%2 === 0)
         {
             console.log(counter);
@@ -22,7 +35,7 @@ export default function Navbar()
         
     }
     return (
-      <nav>
+      <nav >
         <label className='logo'>
           <h4>THE Nav</h4>
         </label>
