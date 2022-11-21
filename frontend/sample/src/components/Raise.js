@@ -133,6 +133,7 @@ export default function Raise() {
     console.log("submit")
     console.log(detail);
     UserService.createUser(detail);
+    bar()
   }
   
 
@@ -163,9 +164,24 @@ export default function Raise() {
       <div className='raise-ticket'>
         <div className='form-bar'>
           <div className='form-bar-1'>1</div>
-          <div className='form-barline-1'> </div>
+          <div
+            className={
+              form2 === true || form3 === true
+                ? 'form-barline-1 green'
+                : 'form-barline-1 white'
+            }
+          >
+          </div>
           <div className='form-bar-2'>2</div>
-          <div className='form-barline-2'> </div>
+          <div
+            className={
+                  form3 === true
+                ? 'form-barline-1 green'
+                : 'form-barline-1 white'
+            }
+          >
+            
+          </div>
           <div className='form-bar-2'>3</div>
         </div>
 
@@ -177,8 +193,22 @@ export default function Raise() {
                 <div className='form-question-1'>
                   WHICH TYPE OF QUERY YOU WANT TO RAISE?
                 </div>
-                <div className={`form-lost-button ${tags==='Lost'? 'select-tag' : ' ' }`} onClick={handleLost}>LOST</div>
-                <div className={`form-lost-button ${tags==='Found'? 'select-tag' : ' ' }`} onClick={handleFound}>FOUND</div>
+                <div
+                  className={`form-lost-button ${
+                    tags === 'Lost' ? 'select-tag effect7' : ' '
+                  }`}
+                  onClick={handleLost}
+                >
+                  LOST
+                </div>
+                <div
+                  className={`form-lost-button ${
+                    tags === 'Found' ? 'select-tag effect7' : ' '
+                  }`}
+                  onClick={handleFound}
+                >
+                  FOUND
+                </div>
               </React.Fragment>
             )}
             {form2 && (
@@ -231,16 +261,17 @@ export default function Raise() {
             )}
             {form3 && (
               <React.Fragment>
-                <div className='form-control'>
-                  <label htmlFor='description'></label>
+                <div className='form-control2'>
                   <textarea
+                    className='raise-description'
                     id='description'
                     name='description'
                     value={detail.description}
                     onChange={handleChange}
                     placeholder='Description'
                   />
-                  <button type='submit' className='submit'>
+                  <br></br>
+                  <button type='submit' className='submit' >
                     Submit
                   </button>
                 </div>
@@ -248,14 +279,13 @@ export default function Raise() {
             )}
           </form>
         </div>
-        <div className='form-button-holder'>
-          <button type='button' className='next-button' onClick={bar}>
-            NEXT
-          </button>
-          <button type='submit' className='submit-button'>
-            Submit
-          </button>
-        </div>
+        {!form3 && (
+          <div className='form-button-holder'>
+            <button type='button' className='next-button' onClick={bar}>
+              NEXT
+            </button>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );
