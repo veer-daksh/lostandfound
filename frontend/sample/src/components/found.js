@@ -9,6 +9,7 @@ export default function Found(){
       const tours = await response.json();
       seta(tours);
       console.log(tours)
+      console.log()
     }
     catch(error)
     {
@@ -26,9 +27,9 @@ export default function Found(){
      <section className='section'>
        <h2 className='section-title'>FOUND ITEMS</h2>
        <div className='cocktails-center'>
-         {a.map((item) => {
-           return <Card count ={item}/>;
-         })}
+       {a.map((item) => {
+            return item.tag === 'Found'? <Card count ={item} />: '' ;
+          })}
        </div>
      </section>
    </React.Fragment>
