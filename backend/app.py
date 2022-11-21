@@ -86,6 +86,82 @@ def data():
  
 
 
+@app.route('/login', methods=['POST', 'GET'])
+def logindata():
+    
+    # POST a data to database
+    if request.method == 'POST':
+        body = request.json
+        
+        name=body['name']
+        emailId = body['emailId']
+        password=body['password']
+        # location=body['location']
+        # brand=body['brand']
+        # color=body['color']
+        # description=body['description']
+        # firstName = body['firstName']
+        # lastName = body['lastName']
+         
+        # db.users.insert_one({
+        db['login'].insert_one({
+            # "tag":tag,
+            "name":name,
+            # "location":location,
+            # "brand":brand,
+            # "color":color,
+            # "description":description
+            # "firstName": firstName,
+            # "lastName": lastName,
+            "emailId":emailId,
+            "password":password
+        })
+        return jsonify({
+            'status': 'Data is posted to MongoDB!',
+            # 'tag':tag,
+            'name':name,
+            # 'location':location,
+            # 'brand':brand,
+            # 'color':color,
+            # 'description':description
+            # 'firstName': firstName,
+            # 'lastName': lastName,
+            'emailId':emailId,
+            'password':password
+        })
+        # GET all data from database
+    if request.method == 'GET':
+        allData = db['login'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            # tag=data['tag']
+            name=data['name']
+            # location=data['location']
+            # brand=data['brand']
+            # color=data['color']
+            # description=data['description']
+            # firstName = data['firstName']
+            # lastName = data['lastName']
+            emailId = data['emailId']
+            password=data['password']
+            dataDict = {
+                'id': str(id),
+                # 'tag':tag,
+                'name':name,
+                # 'location':location,
+                # 'brand':brand,
+                # 'color':color,
+                # 'description':description
+                # 'firstName': firstName,
+                # 'lastName': lastName,
+                'emailId': emailId,
+                'password':password
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+ 
     
 @app.route('/found', methods=['POST', 'GET'])
 def ddata():

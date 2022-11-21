@@ -7,8 +7,8 @@ export default function Card(props) {
         <img src={image} alt='g'/>
       </div>
       <div className='cocktail-footer'>
-        <h3>{props.count.emailId}</h3>
-        <h4>{props.count.firstName}</h4>
+        <h3>{props.count.name}</h3>
+        <h4>{props.count.brand}</h4>
         <p>info</p>
       </div>
     </article>
