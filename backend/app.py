@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,session, redirect
+from functools import wraps
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_cors import CORS
 
 app = Flask(__name__)
 app.app_context().push()
+app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 client = MongoClient("mongodb://localhost:27017")
 # db = client.lin_flask
 db = client['reactflaskdb'] ## database name
@@ -13,6 +15,17 @@ CORS(app)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+def login_required(f):
+  @wraps(f)
+  def wrap(*args, **kwargs):
+    if 'logged_in' in session:
+      return f(*args, **kwargs)
+    else:
+      return redirect('/')
+  
+  return wrap
 
 @app.route('/users', methods=['POST', 'GET'])
 def data():
