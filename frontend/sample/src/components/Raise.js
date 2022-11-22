@@ -1,7 +1,7 @@
 import React from 'react';
 import UserService from '../services/UserService';
-  import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Raise() {
   const [detail, setDetail] = React.useState({

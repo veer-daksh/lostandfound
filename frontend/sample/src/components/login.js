@@ -2,11 +2,13 @@ import React from 'react';
 import '../../src/login.css';
 import UserService from '../services/UserService';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const USER_API_BASE_URL = 'http://localhost:5000/users';
 
 
-export default function Login() {
+export default function Login(props) {
   const [list, setList] = React.useState('container');
     const [a, seta] = React.useState([1, 2, 3, 4]);
     const [detail, setDetail] = React.useState({
@@ -40,6 +42,32 @@ export default function Login() {
         console.log(detail);
         axios.post(USER_API_BASE_URL, detail).then((res) => {
           console.log(res);
+          console.log(`users no error ${props.ses}`)
+          props.oper('nikunj');
+          toast.success('🦄 account created!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        },(error)=>
+        {
+          console.log(`users error ${props.ses}`);
+          props.oper('nikunj');
+          toast.success('🦄 account not created!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
         });
       }
 
@@ -47,8 +75,21 @@ export default function Login() {
         e.preventDefault();
         console.log('submit');
         console.log(detail2);
+        props.oper('singhal');
+        console.log(props.ses);
         axios.post(USER_API_BASE_URL, detail2).then((res) => {
           console.log(res);
+          
+          toast.success('🦄 Wow so easy!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
         });
       }
 
@@ -81,6 +122,7 @@ export default function Login() {
   return (
     <React.Fragment>
       <div className='container-main'></div>
+      <ToastContainer/>
       <div className={list} id='container'>
         <div className='form-container sign-up-container'>
           <form className='form-loginpage' action='#'>

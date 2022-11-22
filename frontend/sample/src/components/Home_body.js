@@ -1,7 +1,7 @@
 import React from "react";
 import lnf from '../images/lost-and-found.png'
 
-export default function Home_body()
+export default function Home_body(props)
 {
     return (
       <React.Fragment>
@@ -13,6 +13,7 @@ export default function Home_body()
                 Something lost it's way and came to you just to show the world
                 how honest you are!
               </p>
+              {props.ses}
               <br/>
               <p className="heading-content">
                 Or if you've lost something just chill! People here are damnnn
