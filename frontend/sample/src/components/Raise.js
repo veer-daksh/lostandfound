@@ -30,7 +30,7 @@ export default function Raise() {
   //     <form className='form' onSubmit={handleSubmit}>
   //       <div className='form-control'>
   //         <label htmlFor='name'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='name'
   //           name='name'
@@ -41,7 +41,7 @@ export default function Raise() {
   //       </div>
   //       <div className='form-control'>
   //         <label htmlFor='location'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='location'
   //           name='location'
@@ -52,7 +52,7 @@ export default function Raise() {
   //       </div>
   //       <div className='form-control'>
   //         <label htmlFor='brand'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='brand'
   //           name='brand'
@@ -63,7 +63,7 @@ export default function Raise() {
   //       </div>
   //       <div className='form-control'>
   //         <label htmlFor='color'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='color'
   //           name='color'
@@ -215,7 +215,7 @@ export default function Raise() {
               <React.Fragment>
                 <div className='form-control'>
                   <label htmlFor='name'></label>
-                  <input
+                  <input className='input'
                     type='text'
                     id='name'
                     name='name'
@@ -226,7 +226,7 @@ export default function Raise() {
                 </div>
                 <div className='form-control'>
                   <label htmlFor='location'></label>
-                  <input
+                  <input className='input'
                     type='text'
                     id='location'
                     name='location'
@@ -237,7 +237,7 @@ export default function Raise() {
                 </div>
                 <div className='form-control'>
                   <label htmlFor='brand'></label>
-                  <input
+                  <input className='input'
                     type='text'
                     id='brand'
                     name='brand'
@@ -248,7 +248,7 @@ export default function Raise() {
                 </div>
                 <div className='form-control'>
                   <label htmlFor='color'></label>
-                  <input
+                  <input className='input'
                     type='text'
                     id='color'
                     name='color'

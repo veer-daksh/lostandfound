@@ -336,7 +336,7 @@ nav {
   margin: 3vh;
 }
 
-input{
+.input{
   font-size: 3vh;
   background-color: transparent;
   border: none;
@@ -345,7 +345,7 @@ input{
   /* caret-color: transparent;     to hide the blinking text cursor */
   width: 30%;
 }
-input:focus ,input:hover{
+.input:focus ,.input:hover{
   outline: none;
   border: none;
   border-bottom: 0.3vh solid black ;
@@ -358,7 +358,7 @@ input:focus ,input:hover{
   color:white;
   font-size: 3vh;
 }
-input:focus::placeholder {
+.input:focus::placeholder {
   opacity: 0.4;
     transition: color 0.5s;
 }
