@@ -29,24 +29,24 @@ class User:
     return jsonify(user), 200
 
   def signup(self):
-    print(request.form)
+    print(request.json)
 
     # Create the user object
     user = {
       "_id": uuid.uuid4().hex,
-      "name": request.form.get('name'),
-      "email": request.form.get('email'),
-      "password": request.form.get('password')
+      "name": request.json.get('name'),
+      "email": request.json.get('email'),
+      "password": request.json.get('password')
     }
 
     # Encrypt the password
     user['password'] = pbkdf2_sha256.encrypt(user['password'])
 
     # Check for existing email address
-    if db['login'].find_one({ "email": user['email'] }):
+    if db['login_info'].find_one({ "email": user['email'] }):
       return jsonify({ "error": "Email address already in use" }), 400
 
-    if db['login'].insert_one(user):
+    if db['login_info'].insert_one(user):
       return self.start_session(user)
 
     return jsonify({ "error": "Signup failed" }), 400
@@ -57,11 +57,11 @@ class User:
   
   def login(self):
 
-    user = db['login'].find_one({
-      "email": request.form.get('email')
+    user = db['login_info'].find_one({
+      "email": request.json.get('email')
     })
 
-    if user and pbkdf2_sha256.verify(request.form.get('password'), user['password']):
+    if user and pbkdf2_sha256.verify(request.json.get('password'), user['password']):
       return self.start_session(user)
     
     return jsonify({ "error": "Invalid login credentials" }), 401

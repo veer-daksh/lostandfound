@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const USER_API_BASE_URL = 'http://localhost:5000/users';
+const USER_API_BASE_URL = 'http://localhost:5000//login';
 
 
 export default function Login(props) {
@@ -40,7 +40,7 @@ export default function Login(props) {
         e.preventDefault();
         console.log('submit');
         console.log(detail);
-        axios.post(USER_API_BASE_URL, detail).then((res) => {
+        axios.post('http://localhost:5000/login/signup', detail).then((res) => {
           console.log(res);
           console.log(`users no error ${props.ses}`)
           props.oper('nikunj');
@@ -75,9 +75,9 @@ export default function Login(props) {
         e.preventDefault();
         console.log('submit');
         console.log(detail2);
-        props.oper('singhal');
+        props.oper(detail2.email);
         console.log(props.ses);
-        axios.post(USER_API_BASE_URL, detail2).then((res) => {
+        axios.post('http://localhost:5000/login/login', detail2).then((res) => {
           console.log(res);
           
           toast.success('🦄 Wow so easy!', {
