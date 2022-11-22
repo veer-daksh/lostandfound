@@ -27,7 +27,7 @@ export default function Found(){
        <h2 className='section-title'>FOUND ITEMS</h2>
        <div className='cocktails-center'>
          {a.map((item) => {
-           return a.tag === 'Found'? <Card count ={item}/> : item ;
+           return a.tag === 'Found'? <Card count ={item}/> : '' ;
          })}
        </div>
      </section>
