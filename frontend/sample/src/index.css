@@ -103,8 +103,61 @@ nav {
 /* navbar ends */
 
 .home-page {
-  height: 100%;
+    display: block;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0px;
+  padding-top: 12vh;
+  background: url("./images/background.png") center/cover no-repeat;
 }
+
+.gotlost-container{
+  height: 70vh;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  padding: 2vh;
+}
+.gotlost-content{
+  width: 50%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gotlost-heading
+{
+  color: #030027;
+    font-family: 'Yeseva One', cursive;
+    font-size: 5rem;
+}
+.heading-content
+{
+  font-size: 1.3rem;
+    text-align: justify;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.gotlost-img{
+  height: 70vh;
+}
+@media screen and (max-width: 705px) {
+  .gotlost-container{
+    flex-direction: column;
+    padding-top: 70vh;
+  }
+}
+
+
+
+
+
+
 
 /* raise ticket */
 
@@ -283,7 +336,7 @@ nav {
   margin: 3vh;
 }
 
-input{
+.input{
   font-size: 3vh;
   background-color: transparent;
   border: none;
@@ -292,7 +345,7 @@ input{
   /* caret-color: transparent;     to hide the blinking text cursor */
   width: 30%;
 }
-input:focus ,input:hover{
+.input:focus ,.input:hover{
   outline: none;
   border: none;
   border-bottom: 0.3vh solid black ;
@@ -305,7 +358,7 @@ input:focus ,input:hover{
   color:white;
   font-size: 3vh;
 }
-input:focus::placeholder {
+.input:focus::placeholder {
   opacity: 0.4;
     transition: color 0.5s;
 }

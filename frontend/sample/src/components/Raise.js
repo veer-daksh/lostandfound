@@ -1,5 +1,7 @@
 import React from 'react';
 import UserService from '../services/UserService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Raise() {
   const [detail, setDetail] = React.useState({
@@ -30,7 +32,7 @@ export default function Raise() {
   //     <form className='form' onSubmit={handleSubmit}>
   //       <div className='form-control'>
   //         <label htmlFor='name'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='name'
   //           name='name'
@@ -41,7 +43,7 @@ export default function Raise() {
   //       </div>
   //       <div className='form-control'>
   //         <label htmlFor='location'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='location'
   //           name='location'
@@ -52,7 +54,7 @@ export default function Raise() {
   //       </div>
   //       <div className='form-control'>
   //         <label htmlFor='brand'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='brand'
   //           name='brand'
@@ -63,7 +65,7 @@ export default function Raise() {
   //       </div>
   //       <div className='form-control'>
   //         <label htmlFor='color'></label>
-  //         <input
+  //         <input className='input'
   //           type='text'
   //           id='color'
   //           name='color'
@@ -132,6 +134,16 @@ export default function Raise() {
     e.preventDefault();
     console.log("submit")
     console.log(detail);
+    toast.success('Submited Sucessfully!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
     UserService.createUser(detail);
     bar()
   }
@@ -161,6 +173,7 @@ export default function Raise() {
   return (
     <React.Fragment>
       <div className='bgimage'></div>
+      <ToastContainer />
       <div className='raise-ticket'>
         <div className='form-bar'>
           <div className='form-bar-1'>1</div>
@@ -170,18 +183,13 @@ export default function Raise() {
                 ? 'form-barline-1 green'
                 : 'form-barline-1 white'
             }
-          >
-          </div>
+          ></div>
           <div className='form-bar-2'>2</div>
           <div
             className={
-                  form3 === true
-                ? 'form-barline-1 green'
-                : 'form-barline-1 white'
+              form3 === true ? 'form-barline-1 green' : 'form-barline-1 white'
             }
-          >
-            
-          </div>
+          ></div>
           <div className='form-bar-2'>3</div>
         </div>
 
@@ -216,6 +224,7 @@ export default function Raise() {
                 <div className='form-control'>
                   <label htmlFor='name'></label>
                   <input
+                    className='input'
                     type='text'
                     id='name'
                     name='name'
@@ -227,6 +236,7 @@ export default function Raise() {
                 <div className='form-control'>
                   <label htmlFor='location'></label>
                   <input
+                    className='input'
                     type='text'
                     id='location'
                     name='location'
@@ -238,6 +248,7 @@ export default function Raise() {
                 <div className='form-control'>
                   <label htmlFor='brand'></label>
                   <input
+                    className='input'
                     type='text'
                     id='brand'
                     name='brand'
@@ -249,6 +260,7 @@ export default function Raise() {
                 <div className='form-control'>
                   <label htmlFor='color'></label>
                   <input
+                    className='input'
                     type='text'
                     id='color'
                     name='color'
@@ -271,7 +283,7 @@ export default function Raise() {
                     placeholder='Description'
                   />
                   <br></br>
-                  <button type='submit' className='submit' >
+                  <button type='submit' className='submit'>
                     Submit
                   </button>
                 </div>
