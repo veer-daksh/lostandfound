@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const USER_API_BASE_URL = 'http://localhost:5000//login';
+const USER_API_BASE_URL = 'http://localhost:5000/login';
 
 
 export default function Login(props) {
@@ -44,7 +44,6 @@ export default function Login(props) {
         axios.post('http://localhost:5000/login/signup', detail).then((res) => {
           console.log(res);
           console.log(`users no error ${props.ses}`)
-          props.oper('nikunj');
           toast.success('🦄 account created!', {
             position: 'top-right',
             autoClose: 5000,
@@ -58,7 +57,6 @@ export default function Login(props) {
         },(error)=>
         {
           console.log(`users error ${props.ses}`);
-          props.oper(detail.name);
           toast.success('🦄 account not created!', {
             position: 'top-right',
             autoClose: 5000,
@@ -76,11 +74,11 @@ export default function Login(props) {
         e.preventDefault();
         console.log('submit');
         console.log(detail2);
-        props.oper(detail2.email);
+        
         console.log(props.ses);
         axios.post('http://localhost:5000/login/login', detail2).then((res) => {
           console.log(res);
-          
+          props.oper(detail2.email);
           toast.success('🦄 Wow so easy!', {
             position: 'top-right',
             autoClose: 5000,
@@ -97,7 +95,22 @@ export default function Login(props) {
       function handleSubmit3(e)
       {
         e.preventDefault();
-        axios.post(USER_API_BASE_URL)
+        axios.post("http://localhost:5000/login/signout").then((res) => {
+          console.log(res);
+          
+          toast.success('🦄 Wow so easy!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        });
+        props.oper('')
+        console.log(props.ses)
         setDetail2({
           email: '',
           password: '',
@@ -173,7 +186,7 @@ export default function Login(props) {
         </div>
         <div className='form-container sign-in-container'>
           <form className='form-loginpage' action='#'>
-            {!ses && (
+            {props.ses==='' && (
               <React.Fragment>
                 <h1>Sign in</h1>
                 <input
@@ -200,7 +213,7 @@ export default function Login(props) {
                 </button>
               </React.Fragment>
             )}
-            {ses && (
+            {props.ses !=='' && (
               <button type='submit' onClick={handleSubmit3}>
                 Sign Out
               </button>

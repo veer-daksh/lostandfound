@@ -72,7 +72,7 @@ class User:
 def signup():
   return User().signup()
 
-@app.route('/login/signout')
+@app.route('/login/signout', methods=['POST'])
 def signout():
   return User().signout()
 
@@ -96,6 +96,7 @@ def login_required(f):
 
 
 @app.route('/users', methods=['POST', 'GET'])
+
 def data():
     
     # POST a data to database
@@ -107,6 +108,8 @@ def data():
         brand=body['brand']
         color=body['color']
         description=body['description']
+        emailId=body['emailId']
+        img=body['img']
         # firstName = body['firstName']
         # lastName = body['lastName']
         # emailId = body['emailId'] 
@@ -117,7 +120,9 @@ def data():
             "location":location,
             "brand":brand,
             "color":color,
-            "description":description
+            "description":description,
+            "emailId":emailId,
+            "img":img
             # "firstName": firstName,
             # "lastName": lastName,
             # "emailId":emailId
@@ -129,7 +134,9 @@ def data():
             'location':location,
             'brand':brand,
             'color':color,
-            'description':description
+            'description':description,
+            'emailId':emailId,
+            'img':img
             # 'firstName': firstName,
             # 'lastName': lastName,
             # 'emailId':emailId
@@ -146,6 +153,8 @@ def data():
             brand=data['brand']
             color=data['color']
             description=data['description']
+            emailId=data['emailId']
+            img=data['img']
             # firstName = data['firstName']
             # lastName = data['lastName']
             # emailId = data['emailId']
@@ -156,7 +165,9 @@ def data():
                 'location':location,
                 'brand':brand,
                 'color':color,
-                'description':description
+                'description':description,
+                'emailId':emailId,
+                'img':img
                 # 'firstName': firstName,
                 # 'lastName': lastName,
                 # 'emailId': emailId
@@ -245,6 +256,7 @@ def logindata():
  
     
 @app.route('/found', methods=['POST', 'GET'])
+
 def ddata():
     
     # POST a data to database
@@ -256,6 +268,8 @@ def ddata():
         brand=body['brand']
         color=body['color']
         description=body['description']
+        emailId=body['emailId']
+        img=body['img']
         # firstName = body['firstName']
         # lastName = body['lastName']
         # emailId = body['emailId'] 
@@ -266,7 +280,9 @@ def ddata():
             "location":location,
             "brand":brand,
             "color":color,
-            "description":description
+            "description":description,
+            "emailId":emailId,
+            "img":img
             # "firstName": firstName,
             # "lastName": lastName,
             # "emailId":emailId
@@ -278,7 +294,9 @@ def ddata():
             'location':location,
             'brand':brand,
             'color':color,
-            'description':description
+            'description':description,
+            "emailId":emailId,
+            "img":img
             # 'firstName': firstName,
             # 'lastName': lastName,
             # 'emailId':emailId
@@ -295,6 +313,8 @@ def ddata():
             brand=data['brand']
             color=data['color']
             description=data['description']
+            emailId=data['emailId']
+            img=data['img']
             # firstName = data['firstName']
             # lastName = data['lastName']
             # emailId = data['emailId']
@@ -305,7 +325,9 @@ def ddata():
                 'location':location,
                 'brand':brand,
                 'color':color,
-                'description':description
+                'description':description,
+                'emailId':emailId,
+                'img':img
                 # 'firstName': firstName,
                 # 'lastName': lastName,
                 # 'emailId': emailId
@@ -330,6 +352,8 @@ def onedata(id):
         brand=data['brand']
         color=data['color']
         description=data['description']
+        emailId=data['emailId']
+        img=data['img']
         # firstName = data['firstName']
         # lastName = data['lastName']
         # emailId = data['emailId']
@@ -340,7 +364,9 @@ def onedata(id):
             'location':location,
             'brand':brand,
             'color':color,
-            'description':description
+            'description':description,
+            'emailId':emailId,
+            'img':img
             # 'firstName': firstName,
             # 'lastName': lastName,
             # 'emailId':emailId
@@ -363,6 +389,8 @@ def onedata(id):
         brand=body['brand']
         color=body['body']
         description=body['description']
+        emailId=body['emailId']
+        img=body['img']
         # firstName = body['firstName']
         # lastName = body['lastName']
         # emailId = body['emailId']
@@ -376,7 +404,9 @@ def onedata(id):
                     "location":location,
                     "brand":brand,
                     "color":color,
-                    "description":description
+                    "description":description,
+                    "emailId":emailId,
+                    "img":img
                     # "firstName":firstName,
                     # "lastName":lastName,
                     # "emailId": emailId

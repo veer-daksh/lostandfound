@@ -7,9 +7,9 @@ export default function Card(props) {
         <img src={image} alt='g'/>
       </div>
       <div className='cocktail-footer'>
-        {/* <h3>{props.count.name}</h3>
+        <h3>{props.count.name}</h3>
         <h4>{props.count.brand}</h4>
-        <p>{props.count.location}</p> */}
+        <p>{props.count.location}</p>
       </div>
     </article>
   );

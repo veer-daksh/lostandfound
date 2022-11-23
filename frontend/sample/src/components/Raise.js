@@ -9,7 +9,7 @@ export default function Raise() {
     location: '',
     brand: '',
     color: '',
-    tag: 'Found',
+    tag: 'Lost',
     description: '',
   });
   const [tags,setTags]=React.useState('Lost')
@@ -109,7 +109,7 @@ export default function Raise() {
   {
     setTags('Lost');
     setDetail((prev)=>{
-      return {...prev, tag:tags }
+      return {...prev, tag:'Lost' }
     })
     console.log(detail);
   }
@@ -117,7 +117,7 @@ export default function Raise() {
   {
     setTags('Found');
     setDetail((prev) => {
-      return { ...prev, tag: tags };
+      return { ...prev, tag: 'Found' };
     });
     console.log(detail);
   }
@@ -151,7 +151,7 @@ export default function Raise() {
       location: '',
       brand: '',
       color: '',
-      tag: 'Found',
+      tag: 'Lost',
       description: '',
     });
   }
