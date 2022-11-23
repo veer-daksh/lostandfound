@@ -26,6 +26,7 @@ nav {
   align-items: center;
   min-height: 8vh;
   background-color: #5d4954;
+  z-index: 100000000;
 }
 .logo {
   color: wheat;
@@ -102,14 +103,21 @@ nav {
 
 /* navbar ends */
 
+.container-main
+{
+	position: fixed;
+	background-image: url(./images/homepage.webp);
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
 .home-page {
-    display: block;
+  display: block;
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0px;
   padding-top: 12vh;
-  background: url("./images/background.png") center/cover no-repeat;
 }
 
 .gotlost-container{
@@ -153,6 +161,9 @@ nav {
   }
 }
 
+.lost-homepage{
+
+}
 
 
 
@@ -267,6 +278,7 @@ nav {
   background-color: #ab5a35;
   color: rgb(255, 254, 253);
 }
+
 
 .effect7
 {
@@ -396,6 +408,7 @@ nav {
 /* cards list */
 
 .section-title {
+  
   font-size: 2rem;
   text-transform: capitalize;
   letter-spacing: 0.3rem;
@@ -455,6 +468,7 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+
 .bgimage2 {
   position: fixed;
   background: url('./images/lst_back.jpg') no-repeat center center fixed;
@@ -463,4 +477,35 @@ nav {
   height: calc(100vh);
   width: 100%;
   z-index: -1;
+}
+
+
+
+
+
+
+
+.learn-more {
+    text-decoration: none I !important;
+    background-color: #030027;
+    color: #caac00;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    text-decoration: none !important;
+    font-size: 1.3rem;
+}
+
+.learn-more:hover {
+    text-decoration: none !important;
+    color: black;
+    border: #030027 2px solid;
+    background-color: white;
+}
+
+.shrink {
+    transition: all 0.4s;
+}
+
+.shrink:hover {
+    transform: scale(0.85);
 }

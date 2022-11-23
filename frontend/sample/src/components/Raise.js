@@ -146,6 +146,14 @@ export default function Raise() {
     });
     UserService.createUser(detail);
     bar()
+    setDetail({
+      name: '',
+      location: '',
+      brand: '',
+      color: '',
+      tag: 'Found',
+      description: '',
+    });
   }
   
 
