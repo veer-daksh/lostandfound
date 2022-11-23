@@ -24,7 +24,7 @@ function App() {
           <Route path='/' element={<Home ses={user} />} />
           <Route path='users' element={<Lost />} />
           <Route path='found' element={<Found />} />
-          <Route path='raise' element={<Raise />} />
+          <Route path='raise' element={<Raise ses={user}/>} />
           <Route path='login' element={<Login ses={user} oper={session}/>} />
         </Routes>
       </Router>

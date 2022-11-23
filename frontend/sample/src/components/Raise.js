@@ -3,21 +3,23 @@ import UserService from '../services/UserService';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Raise() {
+export default function Raise(props) {
   const [detail, setDetail] = React.useState({
     name: '',
     location: '',
+    emailId: props.ses,
     brand: '',
     color: '',
-    tag: 'Found',
+    tag: 'Lost',
     description: '',
+    img: '',
   });
   const [tags,setTags]=React.useState('Lost')
   const [counter, setCounter] = React.useState(1);
   const [form1, setForm1] = React.useState(true);
   const [form2, setForm2] = React.useState(false);
   const [form3, setForm3] = React.useState(false);
-
+  console.log(detail);
   // const [f, setF] = React.useState([
   //   <React.Fragment>
   //     <form className='form' onSubmit={handleSubmit}>
@@ -107,19 +109,22 @@ export default function Raise() {
 
   function handleLost()
   {
+    console.log('handlelost')
     setTags('Lost');
     setDetail((prev)=>{
-      return {...prev, tag:tags }
+      return {...prev, tag:'Lost' }
     })
     console.log(detail);
   }
   function handleFound()
   {
+    console.log('handlefound')
     setTags('Found');
     setDetail((prev) => {
-      return { ...prev, tag: tags };
+      return { ...prev, tag: 'Found' };
     });
-    console.log(detail);
+    console.log(detail)
+    
   }
   function handleChange(e) {
     const name = e.target.name;
@@ -133,7 +138,7 @@ export default function Raise() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submit")
-    console.log(detail);
+    console.log(`detail  ${detail.tag}`);
     toast.success('Submited Sucessfully!', {
       position: 'top-right',
       autoClose: 5000,
@@ -151,7 +156,7 @@ export default function Raise() {
       location: '',
       brand: '',
       color: '',
-      tag: 'Found',
+      tag: 'lost',
       description: '',
     });
   }
@@ -159,8 +164,6 @@ export default function Raise() {
 
   function bar() {
     setCounter((counter + 1)%3);
-    console.log(counter)
-    console.log(form1, form2, form3);
     if (counter === 0) {
 
       setForm1(true);
@@ -181,8 +184,9 @@ export default function Raise() {
   return (
     <React.Fragment>
       <div className='bgimage'></div>
-      <ToastContainer />
+
       <div className='raise-ticket'>
+        <ToastContainer />
         <div className='form-bar'>
           <div className='form-bar-1'>1</div>
           <div
@@ -275,6 +279,18 @@ export default function Raise() {
                     value={detail.color}
                     onChange={handleChange}
                     placeholder='color'
+                  />
+                </div>
+                <div className='form-control'>
+                  <label htmlFor='image'></label>
+                  <input
+                    className='input'
+                    type='text'
+                    id='image'
+                    name='img'
+                    value={detail.img}
+                    onChange={handleChange}
+                    placeholder='Image'
                   />
                 </div>
               </React.Fragment>
