@@ -79,7 +79,7 @@ export default function Login(props) {
         console.log(detail2);
         props.oper('singhal');
         console.log(props.ses);
-        axios.post(USER_API_BASE_URL, detail2).then((res) => {
+        axios.post(detail, detail2).then((res) => {
           console.log(res);
           
           toast.success('🦄 Wow so easy!', {
