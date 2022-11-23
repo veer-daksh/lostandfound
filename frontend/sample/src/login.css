@@ -22,6 +22,7 @@
 }
 
 button {
+	cursor: pointer;
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -64,7 +65,7 @@ button.ghost {
 }
 .container-main
 {
-	position: absolute;
+	position: fixed;
 	background-image: url(./images/homepage.webp);
 	height: 100%;
 	width: 100%;
@@ -208,4 +209,13 @@ button.ghost {
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
+}
+
+.signout-align
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 480px;
 }

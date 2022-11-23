@@ -2,9 +2,9 @@ import React from 'react';
 import image from '../images/bg-01.jpg'
 export default function Card(props) {
   return (
-    <article className='cocktail effect7'>
+    <article className='cocktail '>
       <div className='img-container'>
-        <img src={image} alt='g'/>
+        <img src={props.img} alt='g'/>
       </div>
       <div className='cocktail-footer'>
         <h3>{props.count.name}</h3>
