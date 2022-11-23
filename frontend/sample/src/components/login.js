@@ -11,6 +11,7 @@ const USER_API_BASE_URL = 'http://localhost:5000/users';
 export default function Login(props) {
   const [list, setList] = React.useState('container');
     const [a, seta] = React.useState([1, 2, 3, 4]);
+    const [ses,setSes]=React.useState(1);
     const [detail, setDetail] = React.useState({
         name: '',
         email:'',
@@ -57,7 +58,7 @@ export default function Login(props) {
         },(error)=>
         {
           console.log(`users error ${props.ses}`);
-          props.oper('nikunj');
+          props.oper(detail.name);
           toast.success('🦄 account not created!', {
             position: 'top-right',
             autoClose: 5000,
@@ -93,6 +94,16 @@ export default function Login(props) {
         });
       }
 
+      function handleSubmit3(e)
+      {
+        e.preventDefault();
+        axios.post(USER_API_BASE_URL)
+        setDetail2({
+          email: '',
+          password: '',
+        });
+      }
+
       function handleChange(e) {
         const name = e.target.name;
         const val = e.target.value;
@@ -100,6 +111,7 @@ export default function Login(props) {
         setDetail((prev) => {
           return { ...prev, [name]: val };
         });
+         
       }
 
       function handleChange2(e) {
@@ -122,16 +134,11 @@ export default function Login(props) {
   return (
     <React.Fragment>
       <div className='container-main'></div>
-      <ToastContainer/>
+      <ToastContainer />
       <div className={list} id='container'>
         <div className='form-container sign-up-container'>
           <form className='form-loginpage' action='#'>
             <h1>Create Account</h1>
-            <div className='social-container'>
-              <a href='#' className='social'></a>
-              <a href='#' className='social'></a>
-              <a href='#' className='social'></a>
-            </div>
             <input
               className='input-loginpage'
               type='text'
@@ -139,6 +146,7 @@ export default function Login(props) {
               name='name'
               value={detail.name}
               onChange={handleChange}
+              required='required'
             />
             <input
               className='input-loginpage'
@@ -147,6 +155,7 @@ export default function Login(props) {
               name='email'
               value={detail.email}
               onChange={handleChange}
+              required='required'
             />
             <input
               className='input-loginpage'
@@ -155,6 +164,7 @@ export default function Login(props) {
               name='password'
               value={detail.password}
               onChange={handleChange}
+              required='required'
             />
             <button type='submit' onClick={handleSubmit}>
               Sign Up
@@ -163,34 +173,38 @@ export default function Login(props) {
         </div>
         <div className='form-container sign-in-container'>
           <form className='form-loginpage' action='#'>
-            <h1>Sign in</h1>
-            <div className='social-container'>
-              <a href='#' className='social'></a>
-              <a href='#' className='social'></a>
-              <a href='#' className='social'></a>
-            </div>
-            <input
-              className='input-loginpage'
-              type='email'
-              placeholder='Email'
-              name='email'
-              value={detail2.email}
-              onChange={handleChange2}
-            />
-            <input
-              className='input-loginpage'
-              type='password'
-              placeholder='Password'
-              name='password'
-              value={detail2.password}
-              onChange={handleChange2}
-            />
-            <a className='forgot-password' href='#'>
-              Forgot your password?
-            </a>
-            <button type='submit' onClick={handleSubmit2}>
-              Sign In
-            </button>
+            {!ses && (
+              <React.Fragment>
+                <h1>Sign in</h1>
+                <input
+                  className='input-loginpage'
+                  type='email'
+                  placeholder='Email'
+                  name='email'
+                  value={detail2.email}
+                  onChange={handleChange2}
+                  required='required'
+                />
+                <input
+                  className='input-loginpage'
+                  type='password'
+                  placeholder='Password'
+                  name='password'
+                  value={detail2.password}
+                  onChange={handleChange2}
+                  required='required'
+                />
+
+                <button type='submit' onClick={handleSubmit2}>
+                  Sign In
+                </button>
+              </React.Fragment>
+            )}
+            {ses && (
+              <button type='submit' onClick={handleSubmit3}>
+                Sign Out
+              </button>
+            )}
           </form>
         </div>
         <div className='overlay-container'>

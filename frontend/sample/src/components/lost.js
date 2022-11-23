@@ -29,6 +29,9 @@ export default function Lost() {
           {a.map((item) => {
             return a.tag === 'Lost' ? <Card count={item} /> : '';
           })}
+          {a.map((item) => {
+            return  <Card count={item} /> ;
+          })}
         </div>
       </section>
     </React.Fragment>

@@ -37,7 +37,7 @@ export default function Navbar()
     return (
       <nav >
         <label className='logo'>
-          <h4>THE Nav</h4>
+          <h4>Lost N Found</h4>
         </label>
 
         <ul id='nav-links' className={list}>
@@ -54,7 +54,7 @@ export default function Navbar()
             <Link to='/raise'>Raise</Link>
           </li>
           <li>
-            <Link to='/login'>About</Link>
+            <Link to='/login'>Login</Link>
           </li>
         </ul>
         <div id='burger' className='burger' onClick={handle}>

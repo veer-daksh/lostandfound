@@ -56,7 +56,7 @@ button.ghost {
 }
 
 .input-loginpage {
-	background-color: #eee;
+	background-color: #d3cfcf;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -65,8 +65,7 @@ button.ghost {
 .container-main
 {
 	position: absolute;
-	background-image: url(./images/bg-01.jpg);
-	opacity: 0.2;
+	background-image: url(./images/homepage.webp);
 	height: 100%;
 	width: 100%;
 	z-index: -1;
@@ -83,6 +82,7 @@ button.ghost {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
+	margin: auto;
 }
 
 .form-container {
