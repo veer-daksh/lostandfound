@@ -9,15 +9,15 @@ export default function Home_body(props)
       <React.Fragment>
         <div className='container-main'></div>
         <div className='home-page'>
-          {props.ses && (
+          {!props.ses && (
             <div className='gotlost-container'>
               <div className='gotlost-content'>
                 <h1 className='gotlost-heading'>GOT LOST</h1>
                 <p className='heading-content'>
+                  {props.ses}
                   Something lost it's way and came to you just to show the world
                   how honest you are!
                 </p>
-                {props.ses}
                 <br />
                 <p className='heading-content'>
                   Or if you've lost something just chill! People here are damnnn
@@ -34,7 +34,9 @@ export default function Home_body(props)
             </div>
           )}
 
-          {!props.ses && (
+          {props.ses!==''   && 
+          
+          (
             <React.Fragment>
               <div className='gotlost-container'>
                 <div className='gotlost-content abc'>
@@ -45,6 +47,7 @@ export default function Home_body(props)
                       Only the property lost on College or Hostel can be
                       reported.
                     </li>
+                    
                     <li class=''>
                       Maximum time for filing any lost report should be 2 days.
                     </li>

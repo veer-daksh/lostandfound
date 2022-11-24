@@ -181,7 +181,7 @@ export default function Raise(props) {
     }
   }
 
-  return (
+  return (<React.Fragment>{   props.ses && (
     <React.Fragment>
       <div className='bgimage'></div>
 
@@ -290,7 +290,7 @@ export default function Raise(props) {
                     name='img'
                     value={detail.img}
                     onChange={handleChange}
-                    placeholder='Image'
+                    placeholder='Image(imgur url)'
                   />
                 </div>
               </React.Fragment>
@@ -323,6 +323,8 @@ export default function Raise(props) {
           </div>
         )}
       </div>
+    </React.Fragment>
+    )}
     </React.Fragment>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './cards';
 const url="http://localhost:5000/users";
-export default function Lost() {
+export default function Lost(props) {
   const [a, seta] = React.useState([1, 2, 3, 4]);
   const fetchTours = async ()=>{
     try{
@@ -16,7 +16,8 @@ export default function Lost() {
     }
   }
   React.useEffect(()=>{
-    fetchTours();
+    if(props.ses){
+    fetchTours();}
     console.log("useeffect")
   },[])
   console.log(a);

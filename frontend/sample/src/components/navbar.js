@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-export default function Navbar()
+export default function Navbar(props)
 {
     const [list,setList]= React.useState('nav-links')
     const [counter, setCounter] = React.useState(1);
@@ -34,7 +34,7 @@ export default function Navbar()
         }
         
     }
-    return (
+    return (<React.Fragment>{ props.ses && (
       <nav >
         <label className='logo'>
           <h4>Lost N Found</h4>
@@ -45,7 +45,7 @@ export default function Navbar()
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/users'>Lost</Link>
+            <Link to='/lost'>Lost</Link>
           </li>
           <li>
             <Link to='/found'>Found</Link>
@@ -63,5 +63,37 @@ export default function Navbar()
           <div className='line1'></div>
         </div>
       </nav>
+      )}
+      {!props.ses && (
+      <nav >
+        <label className='logo'>
+          <h4>Lost N Found</h4>
+        </label>
+
+        <ul id='nav-links' className={list}>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/login'>Lost</Link>
+          </li>
+          <li>
+            <Link to='/login'>Found</Link>
+          </li>
+          <li>
+            <Link to='/login'>Raise</Link>
+          </li>
+          <li>
+            <Link to='/login'>Login</Link>
+          </li>
+        </ul>
+        <div id='burger' className='burger' onClick={handle}>
+          <div className='line1'></div>
+          <div className='line1'></div>
+          <div className='line1'></div>
+        </div>
+      </nav>
+      )}
+      </React.Fragment>
     );
 }

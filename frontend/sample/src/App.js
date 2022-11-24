@@ -19,11 +19,11 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-        <Navbar />
+        <Navbar ses={user} />
         <Routes>
           <Route path='/' element={<Home ses={user} />} />
-          <Route path='users' element={<Lost />} />
-          <Route path='found' element={<Found />} />
+          <Route path='lost' element={<Lost ses={user}/>} />
+          <Route path='found' element={<Found ses={user} />} />
           <Route path='raise' element={<Raise ses={user}/>} />
           <Route path='login' element={<Login ses={user} oper={session}/>} />
         </Routes>

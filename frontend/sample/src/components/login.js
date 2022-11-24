@@ -9,7 +9,7 @@ const USER_API_BASE_URL = 'http://localhost:5000/login';
 
 
 export default function Login(props) {
-  const [sign,setSign]=React.useState('a');
+  const [sign,setSign]=React.useState(props.ses);
   const [list, setList] = React.useState('container');
     const [a, seta] = React.useState([1, 2, 3, 4]);
     const [ses,setSes]=React.useState(1);
@@ -99,7 +99,7 @@ export default function Login(props) {
         e.preventDefault();
         axios.post("http://localhost:5000/login/signout").then((res) => {
           console.log(res);
-          
+          setSign('');
           toast.success('🦄 Wow so easy!', {
             position: 'top-right',
             autoClose: 5000,
@@ -117,7 +117,7 @@ export default function Login(props) {
           email: '',
           password: '',
         });
-        setSign('');
+        
       }
 
       function handleChange(e) {
@@ -188,30 +188,69 @@ export default function Login(props) {
                 <button type='submit' onClick={handleSubmit}>
                   Sign Up
                 </button>
-              </React.Fragment>
-            )}
-            {ses && (
-              <button type='submit' onClick={handleSubmit3}>
-                Sign Out
-              </button>
-            )}
-          </form>
-        </div>
-        <div className='overlay-container'>
-          <div className='overlay'>
-            <div className='overlay-panel overlay-left'>
-              <h1>Welcome Back!</h1>
-              <p className='login-para'>
-                To keep connected with us please login with your personal info
-              </p>
-              <button className='ghost' id='signIn' onClick={removevent}>
-                Sign In
-              </button>
+              </form>
             </div>
-            <div className='overlay-panel overlay-right'>
-              <h1>Hello, Friend!</h1>
-              <p className='login-para'>
-                Enter your personal details and start journey with us
+            <div className='form-container sign-in-container'>
+              <form className='form-loginpage' action='#'>
+                {1 && (
+                  <React.Fragment>
+                    <h1>Sign in</h1>
+                    <input
+                      className='input-loginpage'
+                      type='email'
+                      placeholder='Email'
+                      name='email'
+                      value={detail2.email}
+                      onChange={handleChange2}
+                      required='required'
+                    />
+                    <input
+                      className='input-loginpage'
+                      type='password'
+                      placeholder='Password'
+                      name='password'
+                      value={detail2.password}
+                      onChange={handleChange2}
+                      required='required'
+                    />
+
+                    <button type='submit' onClick={handleSubmit2}>
+                      Sign In
+                    </button>
+                  </React.Fragment>
+                )}
+              </form>
+            </div>
+            <div className='overlay-container'>
+              <div className='overlay'>
+                <div className='overlay-panel overlay-left'>
+                  <h1>Welcome Back!</h1>
+                  <p className='login-para'>
+                    To keep connected with us please login with your personal
+                    info
+                  </p>
+                  <button className='ghost' id='signIn' onClick={removevent}>
+                    Sign In
+                  </button>
+                </div>
+                <div className='overlay-panel overlay-right'>
+                  <h1>Hello, Friend!</h1>
+                  <p className='login-para'>
+                    Enter your personal details and start journey with us
+                  </p>
+                  <button className='ghost' id='signUp' onClick={handlevent}>
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </div>
+          </React.Fragment>
+        )}
+        {sign !== '' && (
+          <React.Fragment>
+            <div className='signout-align'>
+              <p className='heading-content signout-text'>
+                CLICK HERE TO SIGN OUT OF THE PAGE
               </p>
               <button className='signout' type='submit' onClick={handleSubmit3}>
                 Sign Out
@@ -223,3 +262,4 @@ export default function Login(props) {
     </React.Fragment>
   );
 }
+
