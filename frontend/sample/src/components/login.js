@@ -5,6 +5,10 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
+
+
 const USER_API_BASE_URL = 'http://localhost:5000/users';
 
 
@@ -40,6 +44,35 @@ export default function Login(props) {
 
       function handleSubmit(e) {
         e.preventDefault();
+        let em= detail.email
+        let pas = detail.password
+        let n=detail.name
+        if (!em || !pas || !n) {
+          console.log('Email is required');
+          toast.error('🦄 All Fields Are Required!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        } else if (!new RegExp(/\S+@\S+\.\S+/).test(em)) {
+          console.log('Incorrect email format');
+          toast.error('🦄 Incorrect email format', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        }
+        else{
         console.log('submit');
         console.log(detail);
         axios.post(USER_API_BASE_URL, detail).then((res) => {
@@ -60,7 +93,7 @@ export default function Login(props) {
         {
           console.log(`users error ${props.ses}`);
           props.oper(detail.name);
-          toast.success('🦄 account not created!', {
+          toast.error('🦄 account not created!', {
             position: 'top-right',
             autoClose: 5000,
             hideProgressBar: false,
@@ -72,17 +105,14 @@ export default function Login(props) {
           });
         });
       }
+      }
 
       function handleSubmit2(e) {
         e.preventDefault();
-        console.log('submit');
-        console.log(detail2);
-        props.oper('singhal');
-        console.log(props.ses);
-        axios.post(detail, detail2).then((res) => {
-          console.log(res);
-          
-          toast.success('🦄 Wow so easy!', {
+        let em= detail2.email
+        if (!em) {
+          console.log('Email is required');
+          toast.error('🦄 All fields are required', {
             position: 'top-right',
             autoClose: 5000,
             hideProgressBar: false,
@@ -92,8 +122,41 @@ export default function Login(props) {
             progress: undefined,
             theme: 'light',
           });
-          setSign('abc');
-        });
+        } else if (
+          !new RegExp(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/).test(em)
+        ) {
+          console.log('Incorrect email format');
+          toast.error('🦄 Incorrect email format', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        } else {
+          console.log('submit');
+          console.log(detail2);
+          props.oper('singhal');
+          console.log(props.ses);
+          axios.post(detail, detail2).then((res) => {
+            console.log(res);
+
+            toast.success('🦄 Wow so easy!', {
+              position: 'top-right',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'light',
+            });
+            setSign('abc');
+          });
+        }
       }
 
       function handleSubmit3(e)
